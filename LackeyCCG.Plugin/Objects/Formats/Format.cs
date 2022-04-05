@@ -1,4 +1,3 @@
-using System;
 using System.Xml.Serialization;
 
 namespace LackeyCCG.Plugin.Objects.Formats

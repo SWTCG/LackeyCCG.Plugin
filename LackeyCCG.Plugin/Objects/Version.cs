@@ -10,7 +10,7 @@ namespace LackeyCCG.Plugin.Objects
 
         [XmlElement(ElementName = "lastupdateYYMMDD")]
         // ReSharper disable once InconsistentNaming
-        public string _lastupdatedateField;
+        public string _lastupdate;
 
         [XmlElement(ElementName = "versionurl")]
         public string VersionUrl { get; set; }
@@ -26,15 +26,15 @@ namespace LackeyCCG.Plugin.Objects
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(_lastupdatedateField))
+                if (string.IsNullOrWhiteSpace(_lastupdate))
                 {
                     return null;
                 }
                 CultureInfo provider = CultureInfo.InvariantCulture;
 
-                return DateTime.ParseExact(this._lastupdatedateField, "yyMMdd", provider);
+                return DateTime.ParseExact(this._lastupdate, "yyMMdd", provider);
             }
-            set => this._lastupdatedateField = value?.ToString("yyMMdd");
+            set => this._lastupdate = value?.ToString("yyMMdd");
         }
     }
 }

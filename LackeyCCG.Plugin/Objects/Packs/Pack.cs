@@ -4,26 +4,25 @@ using System.Xml.Serialization;
 namespace LackeyCCG.Plugin.Objects.Packs
 {
     [XmlType(AnonymousType = true)]
-    [XmlRoot(ElementName = "pack", DataType = "string", IsNullable = true)]
     public class Pack
     {
         [XmlElement(ElementName = "packtitle")]
-        public string title {get; set;}
+        public string Title {get; set;}
 
         [XmlElement(ElementName = "packimage")]
-        public string image {get; set;}
+        public string Image {get; set;}
 
         [XmlElement(ElementName = "packkind")]
-        public string kind {get; set;}
+        public string Kind {get; set;}
 
         [XmlElement(ElementName = "packformat")]
-        public string packformat {get; set;}
+        public string Format {get; set;}
 
         [XmlElement(ElementName = "packcommoncrit")]
-        public packdefinitionsPackPackcommoncrit[] packcommoncrit {get; set;}
+        public Criteria[] CommonCriteria {get; set;}
 
-        //TODO:: MATT - FIND ATTRIBUTE TO REMOVE 'CHANCE' OBJECT DEFINITION AND JUST USE 'KIND' OBJECTS
-        [XmlElement(ElementName = "chance")]
-        public packdefinitionsPackChanceKind[][] chance {get; set;}
+        [XmlArray("chance")]
+        [XmlArrayItem("kind")]
+        public Kind[] Chances {get; set;}
     }
 }

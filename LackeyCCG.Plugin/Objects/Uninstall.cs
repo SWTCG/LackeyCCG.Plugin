@@ -10,16 +10,16 @@ namespace LackeyCCG.Plugin.Objects
 
         [XmlElement(ElementName = "dateYYMMDD")]
         // ReSharper disable once InconsistentNaming
-        public string _dateField;
+        public string _date;
 
         [XmlIgnore]
         public DateTime Date {
             get {
                 CultureInfo provider = CultureInfo.InvariantCulture;
 
-                return DateTime.ParseExact(this._dateField, "yyMMdd", provider);
+                return DateTime.ParseExact(this._date, "yyMMdd", provider);
             }
-            set => this._dateField = value.ToString("yyMMdd");
+            set => this._date = value.ToString("yyMMdd");
         }
 
         [XmlElement(ElementName = "removepath")]

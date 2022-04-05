@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization.Formatters;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 // ReSharper disable InconsistentNaming
 
 namespace LackeyCCG.Plugin.Objects
