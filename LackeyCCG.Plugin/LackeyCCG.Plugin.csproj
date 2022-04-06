@@ -68,7 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\TSV.cs" />
+    <Compile Include="Helpers\SetFile.cs" />
+    <Compile Include="Objects\Card.cs" />
+    <Compile Include="Objects\Decks\CardName.cs" />
+    <Compile Include="Objects\Decks\Deck.cs" />
+    <Compile Include="Objects\Decks\DeckCard.cs" />
+    <Compile Include="Objects\Decks\SuperZone.cs" />
     <Compile Include="Objects\Formats\Format.cs" />
     <Compile Include="Objects\Formats\FormatDefinitions.cs" />
     <Compile Include="Objects\ListOfCardDataFiles.cs" />

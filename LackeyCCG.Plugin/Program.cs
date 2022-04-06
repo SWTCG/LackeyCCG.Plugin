@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using CsvHelper.Configuration.Attributes;
 using LackeyCCG.Plugin.Helpers;
 using LackeyCCG.Plugin.Objects;
+using LackeyCCG.Plugin.Objects.Decks;
 using LackeyCCG.Plugin.Objects.Formats;
 using LackeyCCG.Plugin.Objects.Packs;
 
@@ -17,11 +18,11 @@ namespace LackeyCCG.Plugin
     {
         static void Main(string[] args)
         {
-            //XmlSerializer mySerializer = new XmlSerializer(typeof(FormatDefinitions));
+            //XmlSerializer mySerializer = new XmlSerializer(typeof(Deck));
             //// To read the file, create a FileStream.
-            //using (var myFileStream = new FileStream(@"C:\Users\matthewb\Documents\formats.xml", FileMode.Open))
+            //using (var myFileStream = new FileStream(@"C:\Users\matthewb\Documents\deckfile.xml", FileMode.Open))
             //{
-            //    var myObject = (FormatDefinitions)mySerializer.Deserialize(myFileStream);
+            //    var myObject = (Deck)mySerializer.Deserialize(myFileStream);
 
             //    var settings = new XmlWriterSettings
             //    {
@@ -30,7 +31,7 @@ namespace LackeyCCG.Plugin
             //    };
 
             //    // To write to a file, create a StreamWriter object.  
-            //    StreamWriter myWriter = new StreamWriter(@"C:\Users\matthewb\Documents\formats2.xml");
+            //    StreamWriter myWriter = new StreamWriter(@"C:\Users\matthewb\Documents\deckfile2.xml");
             //    using (var writer = XmlWriter.Create(myWriter, settings))
             //    {
             //        mySerializer.Serialize(writer, myObject, new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty }));
@@ -38,33 +39,23 @@ namespace LackeyCCG.Plugin
 
             //    myWriter.Close();
 
-            //    Console.ReadKey();
+            //    //Console.ReadKey();
             //}
 
-            TSV tsv = new TSV();
-            List<SWTCGCard> tsvRows = tsv.ReadFile<SWTCGCard>(@"C:\Users\matthewb\Documents\15TH.txt", Encoding.Default);
+            SetFile<SWTCGCard> tsv = new SetFile<SWTCGCard>();
+            List<SWTCGCard> tsvRows = tsv.ReadSetFile(@"C:\Users\matthewb\Documents\15TH.txt", Encoding.Default);
+
+            Card card = tsvRows[0];
 
             Console.ReadKey();
         }
     }
 
-    public class Card
-    {
-        [Name("Name")]
-        public string Name { get; set; }
 
-        [Name("Set")]
-        public string Set { get; set; }
-
-        [Name("ImageFile")]
-        public string ImageFile { get; set; }
-
-    }
 
     public class SWTCGCard : Card
     {
         public string Side { get; set; }
-        public string Type { get; set; }
         public string Subtype { get; set; }
         public string Cost { get; set; }
         public string Speed { get; set; }

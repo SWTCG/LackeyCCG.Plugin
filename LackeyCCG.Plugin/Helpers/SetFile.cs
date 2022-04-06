@@ -9,13 +9,13 @@ using CsvHelper.Configuration;
 namespace LackeyCCG.Plugin.Helpers
 {
     // ReSharper disable once InconsistentNaming
-    public class TSV
+    public class SetFile<T> where T : Objects.Card
     {
         public CsvConfiguration Configuration { get; set; }
         private StreamReader Stream { get; set; }
         public CsvReader TSVReader { get; set; }
 
-        public TSV()
+        public SetFile()
         {
             this.Configuration = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
@@ -27,7 +27,12 @@ namespace LackeyCCG.Plugin.Helpers
             };
         }
 
-        public List<T> ReadFile<T>(string path, Encoding encoding = null)
+        public SetFile(CsvConfiguration configuration)
+        {
+            this.Configuration = configuration;
+        }
+
+        public List<T> ReadSetFile (string path, Encoding encoding = null)
         {
             if (encoding == null)
             {
@@ -43,5 +48,7 @@ namespace LackeyCCG.Plugin.Helpers
                 }
             }
         }
+
+        
     }
 }

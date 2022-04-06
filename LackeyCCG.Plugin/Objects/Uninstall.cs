@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 
 namespace LackeyCCG.Plugin.Objects
 {
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    [XmlType(AnonymousType = true)]
     [XmlRoot(ElementName = "uninstall", DataType = "string", IsNullable = true)]
     public class Uninstall {
 
