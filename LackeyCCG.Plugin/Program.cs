@@ -42,10 +42,12 @@ namespace LackeyCCG.Plugin
             //    //Console.ReadKey();
             //}
 
-            SetFile<SWTCGCard> tsv = new SetFile<SWTCGCard>();
-            List<SWTCGCard> tsvRows = tsv.ReadSetFile(@"C:\Users\matthewb\Documents\15TH.txt", Encoding.Default);
+            ////SetFile<SWTCGCard> tsv = new SetFile<SWTCGCard>();
+            ////List<SWTCGCard> tsvRows = tsv.ReadSetFile(@"C:\Users\matthewb\Documents\15TH.txt", Encoding.Default);
 
-            Card card = tsvRows[0];
+            ////Card card = tsvRows[0];
+
+            int checksum = Checksum.GetCheckSumFromFile(@"C:\Users\matthewb\Documents\dan.jpg");
 
             Console.ReadKey();
         }

@@ -68,7 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Checksum.cs" />
     <Compile Include="Helpers\SetFile.cs" />
+    <Compile Include="Helpers\UpdateListHelper.cs" />
     <Compile Include="Objects\Card.cs" />
     <Compile Include="Objects\Decks\CardName.cs" />
     <Compile Include="Objects\Decks\Deck.cs" />
